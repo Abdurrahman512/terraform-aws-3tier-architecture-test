@@ -49,9 +49,38 @@ Amazon RDS (MySQL)
 
 terraform-aws-3tier-architecture/
 │
-├── main.tf
-├── variables.tf
-├── outputs.tf
+├── backend.tf
 ├── provider.tf
+├── versions.tf
+├── variables.tf
 ├── terraform.tfvars
+├── outputs.tf
+│
+├── modules/
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── security-groups/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── alb/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── rds/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
 └── README.md
+
