@@ -1,49 +1,44 @@
-# 🚀 Terraform AWS 3-Tier Architecture
+# Terraform AWS 3-Tier Architecture (Enterprise Modular Design)
 
-This project provisions a highly available, scalable, and production-ready 3-Tier architecture on AWS using Terraform.
+This project provisions a highly available 3-tier architecture on AWS using modular Terraform design.
 
----
+## Architecture Components
 
-## 🏗️ Architecture Overview
-
-The infrastructure includes:
-
-- VPC
-- Public & Private Subnets (Multi-AZ)
+- VPC with Public & Private Subnets
 - Internet Gateway
-- Application Load Balancer (ALB)
-- Auto Scaling Group (EC2 Web Tier)
-- RDS MySQL (Private DB Tier)
-- Security Groups
-- Launch Template
-
----
-
-## 📌 Architecture Diagram
-
-Web Tier (Public Subnets)
-    |
-Application Load Balancer
-    |
-Auto Scaling EC2 Instances
-    |
-Database Tier (Private Subnets)
-    |
-Amazon RDS (MySQL)
-
----
-
-## ☁️ AWS Services Used
-
-- Amazon VPC
-- EC2
-- Auto Scaling
+- NAT Gateway
+- Route Tables
 - Application Load Balancer
-- RDS (MySQL)
-- Security Groups
-- Subnet Groups
+- Auto Scaling Group
+- EC2 Web Tier
+- RDS MySQL Database Tier
+- Remote S3 Backend State
 
----
+## Deployment
+
+terraform init
+terraform plan
+terraform apply -var-file="terraform.tfvars"
+
+## Environment Separation
+
+Supports:
+- dev
+- stage
+- prod
+
+## Remote State Management
+
+- S3 Backend
+- DynamoDB State Locking
+
+## Security Best Practices
+
+- No hardcoded secrets
+- IAM Role-based access
+- Private RDS subnet
+- Multi-AZ support
+
 
 ## 📂 Project Structure
 
